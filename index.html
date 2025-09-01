@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AbyssStreamer</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<canvas id="bubbles"></canvas>
+
+<header>
+  <div class="container nav">
+    <div class="logo"><span class="logo-bubble"></span><span id="brand">AbyssStreamer</span></div>
+    <nav class="menu">
+      <a href="#live">Live</a>
+      <a href="#planning">Planning</a>
+      <a href="#vods">Redifs</a>
+      <a href="#contact">Contact</a>
+      <a id="donateTop" class="cta" href="#" target="_blank">Donations</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Présentation -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-card">
+        <h1 class="title">Bienvenue dans les abysses cosy de <span id="streamerName">DemoStreamer</span> 🫧</h1>
+        <p class="subtitle">Ici on chill, on papote et on explore l’océan des jeux indés, cosy et narratifs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE -->
+  <section id="live">
+    <div class="container">
+      <h2 class="section-title">En direct</h2>
+      <div class="grid live-grid">
+        <article class="panel">
+          <h3>Lecteur Twitch</h3>
+          <div id="twitch-player"></div>
+        </article>
+        <aside class="panel">
+          <h3>Chat</h3>
+          <div id="twitch-chat"></div>
+        </aside>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a id="followBtn" class="btn" target="_blank" rel="noopener">Suivre sur Twitch</a>
+        <a id="donateBtn" class="btn" target="_blank" rel="noopener">Faire un tip</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANNING -->
+  <section id="planning">
+    <div class="container">
+      <h2 class="section-title">Planning de stream</h2>
+      <div class="schedule">
+        <table>
+          <thead><tr><th>Jour</th><th>Heure</th></tr></thead>
+          <tbody id="scheduleBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDIFFUSIONS -->
+  <section id="vods">
+    <div class="container">
+      <h2 class="section-title">Rediffusions YouTube</h2>
+      <div class="grid vods" id="vodGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Réseaux & Contact</h2>
+      <div class="grid" style="grid-template-columns:1.2fr .8fr">
+        <div class="panel" style="padding:16px">
+          <h3 style="margin-top:0">Réseaux</h3>
+          <div class="socials" id="socialLinks"></div>
+        </div>
+        <div class="panel" style="padding:16px">
+          <h3 style="margin-top:0">Contact</h3>
+          <form id="contactForm" action="https://formspree.io/f/xxxxxx" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
+            <button class="btn" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div style="display:flex;align-items:center;gap:10px"><span class="logo-bubble"></span><strong id="footBrand">AbyssStreamer</strong></div>
+    <div style="opacity:.7">© <span id="year"></span> • Fait avec amour sous la mer 🐙</div>
+  </div>
+</footer>
+
+<script src="assets/js/script.js" defer></script>
+</body>
+</html>
