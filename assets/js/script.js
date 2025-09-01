@@ -1,28 +1,17 @@
-// ===== CONFIGURATION =====
-const twitchChannel = 'Ellbana';
+/* ===================== MENU HAMBURGER ===================== */
+const hamburger = document.querySelector('.hamburger');
+const menu = document.querySelector('.menu');
 
-// Détection du domaine et du port
+hamburger.addEventListener('click', () => {
+  menu.classList.toggle('active');
+});
+
+/* ===================== TWITCH EMBED ===================== */
+const twitchChannel = 'Ellbana'; // remplace par son pseudo
 let host = location.hostname;
-if(host === 'localhost' && location.port) {
-  host += `:${location.port}`;
-}
-
+if (location.port) host += `:${location.port}`; // ajouter port local si nécessaire
 const twitchParents = [host];
 
-const youtubePlaylistId = 'PLDemo'; 
-const socials = {
-  Twitch:'#',
-  YouTube:'#',
-  Discord:'#'
-};
-const donations = '#';
-const schedule = [
-  {jour:'Lundi',heure:'20h-23h'},
-  {jour:'Mercredi',heure:'20h-23h'},
-  {jour:'Samedi',heure:'15h-18h'}
-];
-
-// ===== TWITCH PLAYER & CHAT via Script Officiel =====
 const twitchScript = document.createElement('script');
 twitchScript.src = "https://embed.twitch.tv/embed/v1.js";
 twitchScript.defer = true;
@@ -30,31 +19,42 @@ document.body.appendChild(twitchScript);
 
 twitchScript.onload = () => {
   new Twitch.Embed("twitch-player", {
-      width: "100%",
-      height: 480,
-      channel: twitchChannel,
-      parent: twitchParents
+    width: "100%",
+    height: 480,
+    channel: twitchChannel,
+    parent: twitchParents
   });
-
   new Twitch.Embed("twitch-chat", {
-      width: "100%",
-      height: 480,
-      layout: "chat",
-      channel: twitchChannel,
-      parent: twitchParents
+    width: "100%",
+    height: 480,
+    layout: "chat",
+    channel: twitchChannel,
+    parent: twitchParents
   });
 };
 
-// ===== PLANNING DYNAMIQUE =====
-const scheduleBody = document.getElementById('scheduleBody');
+/* ===================== PLANNING DYNAMIQUE ===================== */
+const schedule = [
+  {jour:'Lundi', heure:'20h - 23h'},
+  {jour:'Mercredi', heure:'20h - 23h'},
+  {jour:'Samedi', heure:'15h - 18h'}
+];
+
+const scheduleGrid = document.querySelector('.schedule-grid');
+scheduleGrid.innerHTML = ''; // vider si nécessaire
+
 schedule.forEach(s => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${s.jour}</td><td>${s.heure}</td>`;
-  scheduleBody.appendChild(tr);
+  const div = document.createElement('div');
+  div.className = 'schedule-card';
+  div.innerHTML = `<h3>${s.jour}</h3><p>${s.heure}</p>`;
+  scheduleGrid.appendChild(div);
 });
 
-// ===== REDIFS YOUTUBE =====
+/* ===================== VODS YOUTUBE ===================== */
+const youtubePlaylistId = 'PLDemo'; // remplacer par la vraie playlist
 const vodGrid = document.getElementById('vodGrid');
+vodGrid.innerHTML = '';
+
 for(let i=0;i<6;i++){
   const div = document.createElement('div');
   div.className='panel';
@@ -62,21 +62,29 @@ for(let i=0;i<6;i++){
   vodGrid.appendChild(div);
 }
 
-// ===== RESEAUX SOCIAUX =====
+/* ===================== RESEAUX SOCIAUX ===================== */
+const socials = {
+  Twitch:'#',
+  YouTube:'#',
+  Discord:'#'
+};
+
 const socialDiv = document.getElementById('socialLinks');
+socialDiv.innerHTML = '';
 for(const [name,url] of Object.entries(socials)){
   const a = document.createElement('a');
   a.href = url;
   a.textContent = name;
-  a.target = '_blank';
+  a.target='_blank';
   socialDiv.appendChild(a);
 }
 
-// ===== BOUTONS DONATION =====
+/* ===================== DONATIONS ===================== */
+const donations = '#'; // remplacer par le lien réel
 document.getElementById('donateBtn').href = donations;
 document.getElementById('donateTop').href = donations;
 
-// ===== ANNEE DYNAMIQUE =====
+/* ===================== FOOTER ANNEE ===================== */
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // ===== BULLES ANIMEES =====
