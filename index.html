@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ellbana la patate</title>
+<title>AbyssStreamer</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -38,7 +39,7 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-card">
-        <h1 class="title">Bienvenue dans les abysses de <span id="streamerName">Ellbana</span> 🫧</h1>
+        <h1 class="title">Bienvenue dans les abysses cosy de <span id="streamerName">Ellbana</span> 🫧</h1>
         <p class="subtitle">Ici on chill, on papote et on explore l’océan des jeux indés, cosy et narratifs.</p>
       </div>
     </div>
@@ -65,26 +66,30 @@
     </div>
   </section>
 
-  <!-- PLANNING -->
-  <section id="planning">
-    <div class="container">
-      <h2 class="section-title">Planning de stream</h2>
-      <div class="schedule-grid">
-        <div class="schedule-card">
-          <h3>Lundi</h3>
-          <p>20h - 23h</p>
-        </div>
-        <div class="schedule-card">
-          <h3>Mercredi</h3>
-          <p>20h - 23h</p>
-        </div>
-        <div class="schedule-card">
-          <h3>Samedi</h3>
-          <p>15h - 18h</p>
-        </div>
+<!-- PLANNING -->
+<section id="planning">
+  <div class="container">
+    <h2 class="section-title">Planning</h2>
+    <div class="grid planning-grid">
+      <div class="panel game-card">
+        <img src="assets/games/lol.jpg" alt="League of Legends">
+        <h3>Lundi - 20h30</h3>
+        <p>League of Legends</p>
+      </div>
+      <div class="panel game-card">
+        <img src="assets/games/minecraft.png" alt="Minecraft">
+        <h3>Mercredi - 21h00</h3>
+        <p>Minecraft</p>
+      </div>
+      <div class="panel game-card">
+        <img src="assets/games/valorant.jpg" alt="Valorant">
+        <h3>Vendredi - 21h30</h3>
+        <p>Valorant</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- REDIFFUSIONS -->
   <section id="vods">
@@ -94,27 +99,45 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Réseaux & Contact</h2>
-      <div class="grid" style="grid-template-columns:1.2fr .8fr">
-        <div class="panel" style="padding:16px">
-          <h3 style="margin-top:0">Réseaux</h3>
-          <div class="socials" id="socialLinks"></div>
-        </div>
-        <div class="panel" style="padding:16px">
-          <h3 style="margin-top:0">Contact</h3>
-          <form id="contactForm" action="https://formspree.io/f/xxxxxx" method="POST">
-            <input type="text" name="name" placeholder="Votre nom" required>
-            <input type="email" name="email" placeholder="Votre email" required>
-            <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
-            <button class="btn" type="submit">Envoyer</button>
-          </form>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">Réseaux & Contact</h2>
+    <div class="grid" style="grid-template-columns:1.2fr .8fr">
+      
+      <!-- Bloc Réseaux -->
+      <div class="panel" style="padding:16px">
+        <h3 style="margin-top:0">Réseaux</h3>
+        <div class="socials">
+          <a href="https://twitch.tv/tonstream" target="_blank" class="twitch">
+            <i class="fab fa-twitch"></i>
+          </a>
+          <a href="https://youtube.com/tonchaine" target="_blank" class="youtube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://twitter.com/tonpseudo" target="_blank" class="twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://discord.gg/tonserveur" target="_blank" class="discord">
+            <i class="fab fa-discord"></i>
+          </a>
         </div>
       </div>
+
+      <!-- Bloc Contact -->
+      <div class="panel" style="padding:16px">
+        <h3 style="margin-top:0">Contact</h3>
+        <form id="contactForm" action="https://formspree.io/f/xxxxxx" method="POST">
+          <input type="text" name="name" placeholder="Votre nom" required>
+          <input type="email" name="email" placeholder="Votre email" required>
+          <textarea name="message" rows="4" placeholder="Votre message" required></textarea>
+          <button class="btn" type="submit">Envoyer</button>
+        </form>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 </main>
 
 <footer>
