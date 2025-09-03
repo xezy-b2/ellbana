@@ -131,3 +131,30 @@ function moveBubbles(){
 }
 
 setInterval(drawBubbles,50);
+
+async function loadPlanning() {
+  try {
+    const res = await fetch("https://planning-discord.onrender.com");
+    const planning = await res.json();
+    const grid = document.getElementById("planningGrid");
+    grid.innerHTML = "";
+
+    for (const [jour, data] of Object.entries(planning)) {
+      const card = document.createElement("div");
+      card.className = "panel game-card";
+
+      card.innerHTML = `
+        <img src="${data.image}" alt="${data.jeu}">
+        <h3>${jour} - ${data.heure}</h3>
+        <p>${data.jeu}</p>
+      `;
+
+      grid.appendChild(card);
+    }
+  } catch (err) {
+    console.error("Erreur chargement planning :", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadPlanning);
+
